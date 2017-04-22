@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Building : MonoBehaviour
 {
+    public static Building obj;
 
     public List<Floor> Floors;
 
@@ -12,10 +13,15 @@ public class Building : MonoBehaviour
     public float FLOOR_HEIGHT = 2f;
 
     // Use this for initialization
+    private void Awake()
+    {
+        obj = this;
+    }
+
     void Start()
     {
         Floors = new List<Floor>();
-        
+
         AddFloor();
         AddFloor();
         AddFloor();
@@ -40,6 +46,14 @@ public class Building : MonoBehaviour
         t.rotation = Quaternion.identity;
         t.localPosition = new Vector3(0, (Floors.Count - 1) * FLOOR_HEIGHT, 0);
 
-        floor.SetUp(this);
+        floor.SetUp(this, Floors.Count - 1);
+    }
+
+    public void OnModeChange()
+    {
+        foreach (Floor floor in Floors)
+        {
+            floor.OnModeChange();
+        }
     }
 }

@@ -3,17 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GameController : MonoBehaviour
+public class ClickCatcher : MonoBehaviour
 {
-    public static GameController obj;
-
-    public GameObject PF_Floor;
-    public GameObject PF_Tile;
-
-    private void Awake()
-    {
-        obj = this;
-    }
 
     // Use this for initialization
     void Start()
@@ -25,5 +16,10 @@ public class GameController : MonoBehaviour
     void Update()
     {
 
+    }
+
+    public void OnMouseDown()
+    {
+        GameController.obj.SelectedTile = null;
     }
 }
