@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class Tile : MonoBehaviour
@@ -85,6 +86,11 @@ public class Tile : MonoBehaviour
             return;
         }
 
+        if (EventSystem.current.IsPointerOverGameObject())
+        {
+            return;
+        }
+
         switch (GameController.obj.State)
         {
             case GameState.PLAY_MODE:
@@ -101,11 +107,11 @@ public class Tile : MonoBehaviour
                         }
                         break;
                     case TileState.BUILT:
-                        if (GameController.obj.SelectedBuildableRoom != null)
+                        if (GameController.obj.BuildableRoomPreview.Data != null)
                         {
-                            if (CanBuildRoom(GameController.obj.SelectedBuildableRoom))
+                            if (CanBuildRoom(GameController.obj.BuildableRoomPreview.Data))
                             {
-                                BuildRoom(GameController.obj.SelectedBuildableRoom);
+                                BuildRoom(GameController.obj.BuildableRoomPreview.Data);
                             }
                         }
                         break;
@@ -116,7 +122,7 @@ public class Tile : MonoBehaviour
 
     public void OnMouseEnter()
     {
-        if (GameController.obj.SelectedBuildableRoom != null)
+        if (GameController.obj.BuildableRoomPreview.Data != null)
         {
             GameController.obj.BuildableRoomPreview.AttachToTile(this);
         }
@@ -289,27 +295,29 @@ public class Tile : MonoBehaviour
 
     public bool CanBuildRoom(RoomData room)
     {
-        int neededTiles = room.NeededTiles - 1;
+        int neededTiles = room.NeededTiles;
 
         Tile tile = this;
         while (neededTiles > 0)
         {
-            if (tile.Right == null)
+            if (tile == null || !tile.IsSuitableForRoomBuilding())
             {
-                //Reached building edge
                 return false;
             }
-
-            if (tile.Right.State != TileState.BUILT)
-            {
-                //Tile not in a suitable state for new room to be built in
-                return false;
-            }
-
             tile = tile.Right;
             neededTiles--;
         }
 
+        return true;
+    }
+
+    public bool IsSuitableForRoomBuilding()
+    {
+        if (State != TileState.BUILT)
+        {
+            //Tile not in a suitable state for new room to be built in
+            return false;
+        }
         return true;
     }
 
@@ -340,5 +348,8 @@ public class Tile : MonoBehaviour
             tile.UpdateGraphics();
             neededTiles--;
         }
+
+        Owner.RegenerateNavigationGraph();
+        room.OnRoomCreated();
     }
 }

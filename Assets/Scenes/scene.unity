@@ -1096,6 +1096,12 @@ MonoBehaviour:
   RoomElevator: {fileID: 21300000, guid: a2904ce2c858fe44997aa8646a7b4dcb, type: 3}
   RoomOffice1: {fileID: 21300000, guid: f2856e3830c4297468ada4d29155cc25, type: 3}
   RoomOffice2: {fileID: 21300000, guid: d830eec0b5ce11e4c916b6e348cb469b, type: 3}
+  RoomOffice3: {fileID: 21300000, guid: c98648187912f2d419aa382fc9d7d380, type: 3}
+  RoomShop: {fileID: 21300000, guid: b839d2615262f7349b0b927cc6797732, type: 3}
+  RoomBar: {fileID: 21300000, guid: ca3dde0359a2d924c8948bef6828931e, type: 3}
+  RoomHome1: {fileID: 21300000, guid: 76489d2b10871144a829878b6ad7ea7a, type: 3}
+  RoomHome2: {fileID: 21300000, guid: 1910a22ad6f2b584e9cad9b0f4f42d21, type: 3}
+  RoomHome3: {fileID: 21300000, guid: 9a48899afceb2af41a920cdb01bb950d, type: 3}
   PF_Floor: {fileID: 1337756980465346, guid: 84dce4763581c334cb2757612e1e63b6, type: 2}
   PF_Tile: {fileID: 1118970854471764, guid: 89a12a82f569fe6419d0b4301dea80ca, type: 2}
   PF_RoomElevator: {fileID: 1333112997915620, guid: 4852eb140eb5f4142868085f2e8d792a,
@@ -1103,6 +1109,17 @@ MonoBehaviour:
   PF_RoomOffice1: {fileID: 1884263881554778, guid: 8668fe3be5849994bb2c4f510e11848c,
     type: 2}
   PF_RoomOffice2: {fileID: 1369399956879706, guid: ae036a46c5b34454aaad71aeba01365e,
+    type: 2}
+  PF_RoomOffice3: {fileID: 1456177129230276, guid: 5328aef651ee3484999ba7dfd369e215,
+    type: 2}
+  PF_RoomShop: {fileID: 1072101954004922, guid: 562f49c4593e4a24293b5c7ee7d7a63e,
+    type: 2}
+  PF_RoomBar: {fileID: 1190153112240282, guid: ca1b2831e8aa80f46879188b7e714180, type: 2}
+  PF_RoomHome1: {fileID: 1696679871429884, guid: 9d618d713ffbb5445801810e2c946a3e,
+    type: 2}
+  PF_RoomHome2: {fileID: 1805985859437082, guid: 804b0ea5b990daa40a0a921330a4bf76,
+    type: 2}
+  PF_RoomHome3: {fileID: 1267047961403648, guid: e8a3f2bead6b31d4ead413fbe9d617ab,
     type: 2}
   PF_BuildableRoomButton: {fileID: 1192899507102034, guid: 10c5850d9311d0b458475ffb1ea81d71,
     type: 2}

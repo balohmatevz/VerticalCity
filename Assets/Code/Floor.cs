@@ -57,7 +57,7 @@ public class Floor : MonoBehaviour
         t.rotation = Quaternion.identity;
         t.transform.localPosition = new Vector3(((-TILES_PER_FLOOR / 2) + x) * TILE_WIDTH, 0, 0);
 
-        tile.SetUp(this, x, TileState.EMPTY);
+        tile.SetUp(this, x, TileState.BUILT);
 
         return tile;
     }
@@ -137,5 +137,60 @@ public class Floor : MonoBehaviour
         }
 
         return Tiles[x].CanBuildRoom(room);
+    }
+
+    public void RegenerateNavigationGraph()
+    {
+        Room room = null;
+        for (int i = 0; i < Tiles.Count; i++)
+        {
+            Tile tile = Tiles[i];
+
+            if (tile.State != TileState.BUILT && tile.State != TileState.HAS_ROOM)
+            {
+                //Break in building
+                room = null;
+                continue;
+            }
+
+            if (tile.BuiltRoom != null && tile.BuiltRoom != room)
+            {
+                tile.BuiltRoom.ClearNavGraph();
+
+                if (room != null)
+                {
+                    room.NavConnect(Direction.RIGHT, tile.BuiltRoom.NavNodeLeft);
+                    tile.BuiltRoom.NavConnect(Direction.LEFT, room.NavNodeRight);
+                }
+
+                if (tile.BuiltRoom.NavNodeUp != null && this.Up)
+                {
+                    if (this.Up.Tiles.Count > i && this.Up.Tiles[i].BuiltRoom != null)
+                    {
+                        if (this.Up.Tiles[i].BuiltRoom.NavNodeDown != null)
+                        {
+                            //This room has a nav node up, room above has a nav node down, connect.
+                            this.Up.Tiles[i].BuiltRoom.NavConnect(Direction.DOWN, tile.BuiltRoom.NavNodeUp);
+                            tile.BuiltRoom.NavConnect(Direction.UP, this.Up.Tiles[i].BuiltRoom.NavNodeDown);
+                        }
+                    }
+                }
+
+                if (tile.BuiltRoom.NavNodeDown != null && this.Down)
+                {
+                    if (this.Down.Tiles.Count > i && this.Down.Tiles[i].BuiltRoom != null)
+                    {
+                        if (this.Down.Tiles[i].BuiltRoom.NavNodeUp != null)
+                        {
+                            //This room has a nav node down, room below has a nav node up, connect.
+                            this.Down.Tiles[i].BuiltRoom.NavConnect(Direction.UP, tile.BuiltRoom.NavNodeDown);
+                            tile.BuiltRoom.NavConnect(Direction.DOWN, this.Down.Tiles[i].BuiltRoom.NavNodeUp);
+                        }
+                    }
+                }
+
+                room = tile.BuiltRoom;
+            }
+        }
     }
 }

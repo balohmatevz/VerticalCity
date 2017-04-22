@@ -14,7 +14,6 @@ public class GameController : MonoBehaviour
     [Header("Variables")]
 
     public List<RoomData> BuildableRooms;
-    public RoomData SelectedBuildableRoom;
     public RoomPreview BuildableRoomPreview;
 
     private Tile _selectedTile = null;
@@ -54,7 +53,6 @@ public class GameController : MonoBehaviour
                 {
                     case GameState.PLAY_MODE:
                         BuildModeButtonImg.color = Color.white;
-                        SelectedBuildableRoom = null;
                         BuildableRoomPreview.SetRoomToPreview(null);
                         break;
                     case GameState.BUILD_MODE:
@@ -79,6 +77,12 @@ public class GameController : MonoBehaviour
     public Sprite RoomElevator;
     public Sprite RoomOffice1;
     public Sprite RoomOffice2;
+    public Sprite RoomOffice3;
+    public Sprite RoomShop;
+    public Sprite RoomBar;
+    public Sprite RoomHome1;
+    public Sprite RoomHome2;
+    public Sprite RoomHome3;
 
     //Prefabs
     [Header("Prefabs")]
@@ -88,6 +92,12 @@ public class GameController : MonoBehaviour
     public GameObject PF_RoomElevator;
     public GameObject PF_RoomOffice1;
     public GameObject PF_RoomOffice2;
+    public GameObject PF_RoomOffice3;
+    public GameObject PF_RoomShop;
+    public GameObject PF_RoomBar;
+    public GameObject PF_RoomHome1;
+    public GameObject PF_RoomHome2;
+    public GameObject PF_RoomHome3;
 
     public GameObject PF_BuildableRoomButton;
 
@@ -98,6 +108,12 @@ public class GameController : MonoBehaviour
         BuildableRooms.Add(new RoomData("Elevator", 3, RoomElevator, PF_RoomElevator));
         BuildableRooms.Add(new RoomData("Small OFfice", 5, RoomOffice1, PF_RoomOffice1));
         BuildableRooms.Add(new RoomData("Medium Office", 8, RoomOffice2, PF_RoomOffice2));
+        BuildableRooms.Add(new RoomData("Large Office", 10, RoomOffice3, PF_RoomOffice3));
+        BuildableRooms.Add(new RoomData("Shop", 8, RoomShop, PF_RoomShop));
+        BuildableRooms.Add(new RoomData("Bar", 8, RoomBar, PF_RoomBar));
+        BuildableRooms.Add(new RoomData("Small Home", 5, RoomHome1, PF_RoomHome1));
+        BuildableRooms.Add(new RoomData("Medium Home", 8, RoomHome2, PF_RoomHome2));
+        BuildableRooms.Add(new RoomData("Large Home", 10, RoomHome3, PF_RoomHome3));
     }
 
     // Use this for initialization

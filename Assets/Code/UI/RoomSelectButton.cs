@@ -29,7 +29,6 @@ public class RoomSelectButton : MonoBehaviour
 
     public void INPUT_OnClick()
     {
-        GameController.obj.SelectedBuildableRoom = Data;
         GameController.obj.BuildableRoomPreview.SetRoomToPreview(Data);
     }
 }

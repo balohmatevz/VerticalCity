@@ -21,5 +21,6 @@ public class ClickCatcher : MonoBehaviour
     public void OnMouseDown()
     {
         GameController.obj.SelectedTile = null;
+        GameController.obj.BuildableRoomPreview.SetRoomToPreview(null);
     }
 }
