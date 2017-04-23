@@ -150,6 +150,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Connections: []
   Line: {fileID: 0}
+  InRoom: {fileID: 114156085088421230}
 --- !u!114 &114156085088421230
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -182,6 +183,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Connections: []
   Line: {fileID: 0}
+  InRoom: {fileID: 114156085088421230}
   InternalNodes: []
 --- !u!114 &114893192314566528
 MonoBehaviour:
@@ -196,6 +198,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Connections: []
   Line: {fileID: 0}
+  InRoom: {fileID: 114156085088421230}
   InternalNodes: []
 --- !u!120 &120335354444466398
 LineRenderer:

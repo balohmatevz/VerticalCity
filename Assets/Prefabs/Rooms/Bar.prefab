@@ -310,6 +310,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Connections: []
   Line: {fileID: 0}
+  InRoom: {fileID: 114406749549496858}
+  NavState: 0
+  PathArchive: []
   InternalNodes: []
 --- !u!114 &114374727489126146
 MonoBehaviour:
@@ -324,6 +327,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Connections: []
   Line: {fileID: 0}
+  InRoom: {fileID: 114406749549496858}
+  NavState: 0
+  PathArchive: []
 --- !u!114 &114391949660921536
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -337,6 +343,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Connections: []
   Line: {fileID: 0}
+  InRoom: {fileID: 114406749549496858}
+  NavState: 0
+  PathArchive: []
 --- !u!114 &114406749549496858
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -374,6 +383,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Connections: []
   Line: {fileID: 0}
+  InRoom: {fileID: 114406749549496858}
+  NavState: 0
+  PathArchive: []
 --- !u!114 &114427846785266470
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -387,6 +399,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Connections: []
   Line: {fileID: 0}
+  InRoom: {fileID: 114406749549496858}
+  NavState: 0
+  PathArchive: []
+  StartTime: 8
+  EndTime: 17
 --- !u!114 &114561337274028972
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -400,6 +417,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Connections: []
   Line: {fileID: 0}
+  InRoom: {fileID: 114406749549496858}
+  NavState: 0
+  PathArchive: []
 --- !u!114 &114924972223157550
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -413,6 +433,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Connections: []
   Line: {fileID: 0}
+  InRoom: {fileID: 114406749549496858}
+  NavState: 0
+  PathArchive: []
   InternalNodes: []
 --- !u!114 &114927124214942184
 MonoBehaviour:
@@ -427,6 +450,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Connections: []
   Line: {fileID: 0}
+  InRoom: {fileID: 114406749549496858}
+  NavState: 0
+  PathArchive: []
 --- !u!120 &120103694851034818
 LineRenderer:
   m_ObjectHideFlags: 1

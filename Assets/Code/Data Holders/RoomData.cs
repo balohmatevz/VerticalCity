@@ -9,12 +9,14 @@ public class RoomData
     public int NeededTiles;
     public Sprite Sprite;
     public GameObject Prefab;
+    public bool NeedsRoomAboveAndBelow;
 
-    public RoomData(string name, int neededTiles, Sprite sprite, GameObject prefab)
+    public RoomData(string name, int neededTiles, Sprite sprite, GameObject prefab, bool needsRoomAboveAndBelow)
     {
         Name = name;
         NeededTiles = neededTiles;
         Sprite = sprite;
         Prefab = prefab;
+        NeedsRoomAboveAndBelow = needsRoomAboveAndBelow;
     }
 }

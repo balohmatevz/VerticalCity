@@ -56,9 +56,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.32"
-     inkscape:cx="12552.461"
-     inkscape:cy="6506.0533"
+     inkscape:zoom="0.64"
+     inkscape:cx="13297.346"
+     inkscape:cy="7173.0567"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -114,6 +114,10 @@
        position="11296.031,8226.7455"
        orientation="0,1"
        id="guide12566" />
+    <sodipodi:guide
+       position="13189.063,7218.75"
+       orientation="1,0"
+       id="guide14700" />
   </sodipodi:namedview>
   <metadata
      id="metadata7">
@@ -7165,5 +7169,77 @@ qvf/AeXuxMEwgE2UAAAAAElFTkSuQmCC
        inkscape:export-filename="C:\Users\conta\Desktop\home for two.png"
        inkscape:export-xdpi="72"
        inkscape:export-ydpi="72" />
+    <path
+       style="fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 13189.062,-6233.5753 128.126,128.125 -128.126,128.125 z"
+       id="path14702"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\conta\Desktop\play.png"
+       inkscape:export-xdpi="70.243904"
+       inkscape:export-ydpi="70.243904" />
+    <path
+       style="fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 13412.5,-6233.5753 128.126,128.125 -128.126,128.125 z"
+       id="path14702-4"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\conta\Desktop\fast.png"
+       inkscape:export-xdpi="70.243904"
+       inkscape:export-ydpi="70.243904" />
+    <path
+       style="fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 13539.063,-6233.5753 128.126,128.125 -128.126,128.125 z"
+       id="path14702-4-8"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\conta\Desktop\fast.png"
+       inkscape:export-xdpi="70.243904"
+       inkscape:export-ydpi="70.243904" />
+    <path
+       style="fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 13896.875,-6233.5753 128.126,128.125 -128.126,128.125 z"
+       id="path14702-4-4"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\conta\Desktop\very fast.png"
+       inkscape:export-xdpi="70.243904"
+       inkscape:export-ydpi="70.243904" />
+    <path
+       style="fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 13985.938,-6233.5753 128.126,128.125 -128.126,128.125 z"
+       id="path14702-4-8-2"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\conta\Desktop\very fast.png"
+       inkscape:export-xdpi="70.243904"
+       inkscape:export-ydpi="70.243904" />
+    <path
+       style="fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 14075,-6233.5753 128.126,128.125 -128.126,128.125 z"
+       id="path14702-4-8-2-5"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\conta\Desktop\very fast.png"
+       inkscape:export-xdpi="70.243904"
+       inkscape:export-ydpi="70.243904" />
+    <rect
+       style="opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:5;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect14767"
+       width="53.125"
+       height="260.9375"
+       x="12868.75"
+       y="-6238.2627"
+       rx="0"
+       ry="0"
+       inkscape:export-filename="C:\Users\conta\Desktop\pause2.png"
+       inkscape:export-xdpi="70.243904"
+       inkscape:export-ydpi="70.243904" />
+    <rect
+       style="opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:5;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect14767-1"
+       width="53.125"
+       height="260.9375"
+       x="12971.875"
+       y="-6238.2627"
+       rx="0"
+       ry="0"
+       inkscape:export-filename="C:\Users\conta\Desktop\pause2.png"
+       inkscape:export-xdpi="70.243904"
+       inkscape:export-ydpi="70.243904" />
   </g>
 </svg>

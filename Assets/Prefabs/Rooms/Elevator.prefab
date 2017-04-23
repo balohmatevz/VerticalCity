@@ -200,6 +200,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Connections: []
   Line: {fileID: 0}
+  InRoom: {fileID: 114094142101859322}
   InternalNodes: []
 --- !u!114 &114204282234035888
 MonoBehaviour:
@@ -214,6 +215,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Connections: []
   Line: {fileID: 0}
+  InRoom: {fileID: 114094142101859322}
   InternalNodes: []
 --- !u!114 &114334774547164142
 MonoBehaviour:
@@ -228,6 +230,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Connections: []
   Line: {fileID: 0}
+  InRoom: {fileID: 114094142101859322}
   InternalNodes: []
 --- !u!114 &114617557157331472
 MonoBehaviour:
@@ -242,6 +245,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Connections: []
   Line: {fileID: 0}
+  InRoom: {fileID: 114094142101859322}
   InternalNodes: []
 --- !u!120 &120114717078500244
 LineRenderer:

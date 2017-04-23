@@ -14,6 +14,9 @@ public class Room : MonoBehaviour
     public List<LeisureNode> LeisureNodes;
     public List<HomeNode> HomeNodes;
 
+    public int XPosition;
+    public RoomData Data;
+
     // Use this for initialization
     void Start()
     {
@@ -26,9 +29,11 @@ public class Room : MonoBehaviour
 
     }
 
-    public void OnRoomCreated()
+    public void OnRoomCreated(int xPosition, RoomData data)
     {
         RecreateInternalNavGraph();
+        XPosition = xPosition;
+        Data = data;
     }
 
     public void ClearNavGraph()

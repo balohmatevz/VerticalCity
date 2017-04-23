@@ -57,7 +57,7 @@ public class Floor : MonoBehaviour
         t.rotation = Quaternion.identity;
         t.transform.localPosition = new Vector3(((-TILES_PER_FLOOR / 2) + x) * TILE_WIDTH, 0, 0);
 
-        tile.SetUp(this, x, TileState.BUILT);
+        tile.SetUp(this, x, ((GameController.obj.BuildDefault) ? TileState.BUILT : TileState.EMPTY));
 
         return tile;
     }
@@ -142,11 +142,18 @@ public class Floor : MonoBehaviour
     public void RegenerateNavigationGraph()
     {
         Room room = null;
+        bool firstNode = true;
+
+        if (FloorNumber == 0)
+        {
+            Owner.EntryNode.ClearConnections();
+        }
+
         for (int i = 0; i < Tiles.Count; i++)
         {
             Tile tile = Tiles[i];
 
-            if (tile.State != TileState.BUILT && tile.State != TileState.HAS_ROOM)
+            if (tile.State != TileState.BUILT && tile.State != TileState.HAS_ROOM && FloorNumber != 0)
             {
                 //Break in building
                 room = null;
@@ -161,6 +168,13 @@ public class Floor : MonoBehaviour
                 {
                     room.NavConnect(Direction.RIGHT, tile.BuiltRoom.NavNodeLeft);
                     tile.BuiltRoom.NavConnect(Direction.LEFT, room.NavNodeRight);
+                }
+
+                if (FloorNumber == 0 && firstNode)
+                {
+                    firstNode = false;
+                    tile.BuiltRoom.NavConnect(Direction.LEFT, Owner.EntryNode);
+                    Owner.EntryNode.Connect(tile.BuiltRoom.NavNodeLeft);
                 }
 
                 if (tile.BuiltRoom.NavNodeUp != null && this.Up)

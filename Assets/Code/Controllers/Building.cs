@@ -8,7 +8,7 @@ public class Building : MonoBehaviour
     public static Building obj;
 
     public List<Floor> Floors;
-
+    public MovementNode EntryNode;
 
     public float FLOOR_HEIGHT = 2f;
 
@@ -25,6 +25,24 @@ public class Building : MonoBehaviour
         AddFloor();
         AddFloor();
         AddFloor();
+
+        if (GameController.obj.BuildDefault)
+        {
+
+            Floors[0].Tiles[16].BuildRoom(GameController.obj.BuildableRooms[0]);
+
+            Floors[1].Tiles[0].BuildRoom(GameController.obj.BuildableRooms[2]);
+            Floors[1].Tiles[8].BuildRoom(GameController.obj.BuildableRooms[7]);
+            Floors[1].Tiles[16].BuildRoom(GameController.obj.BuildableRooms[0]);
+            Floors[1].Tiles[19].BuildRoom(GameController.obj.BuildableRooms[3]);
+            Floors[1].Tiles[29].BuildRoom(GameController.obj.BuildableRooms[8]);
+
+            Floors[2].Tiles[0].BuildRoom(GameController.obj.BuildableRooms[2]);
+            Floors[2].Tiles[8].BuildRoom(GameController.obj.BuildableRooms[7]);
+            Floors[2].Tiles[16].BuildRoom(GameController.obj.BuildableRooms[0]);
+            Floors[2].Tiles[19].BuildRoom(GameController.obj.BuildableRooms[3]);
+            Floors[2].Tiles[29].BuildRoom(GameController.obj.BuildableRooms[8]);
+        }
     }
 
     // Update is called once per frame

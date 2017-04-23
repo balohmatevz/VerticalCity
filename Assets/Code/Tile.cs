@@ -59,10 +59,11 @@ public class Tile : MonoBehaviour
     {
         if (State == TileState.BUILDING)
         {
-            BuildingTimer -= Time.deltaTime;
+            BuildingTimer -= GameController.FrameTimeDiff();
             if (BuildingTimer <= 0)
             {
                 State = TileState.BUILT;
+                Owner.RegenerateNavigationGraph();
             }
         }
     }
@@ -307,6 +308,43 @@ public class Tile : MonoBehaviour
             tile = tile.Right;
             neededTiles--;
         }
+        
+        Tile lastTile = tile;
+
+        if (room.NeedsRoomAboveAndBelow)
+        {
+            tile = this;
+            if (tile.Up != null && tile.Up.BuiltRoom != null && tile.Up.BuiltRoom.Data != null && tile.Up.BuiltRoom.Data.Name == room.Name)
+            {
+                if (tile.Up.BuiltRoom.XPosition != TilePosition)
+                {
+                    return false;
+                }
+            }
+            if (tile.Down != null && tile.Down.BuiltRoom != null && tile.Down.BuiltRoom.Data != null && tile.Down.BuiltRoom.Data.Name == room.Name)
+            {
+                if (tile.Down.BuiltRoom.XPosition != TilePosition)
+                {
+                    return false;
+                }
+            }
+            
+            tile = lastTile.Left;
+            if (tile.Up != null && tile.Up.BuiltRoom != null && tile.Up.BuiltRoom.Data != null && tile.Up.BuiltRoom.Data.Name == room.Name)
+            {
+                if (tile.Up.BuiltRoom.XPosition != TilePosition)
+                {
+                    return false;
+                }
+            }
+            if (tile.Down != null && tile.Down.BuiltRoom != null && tile.Down.BuiltRoom.Data != null && tile.Down.BuiltRoom.Data.Name == room.Name)
+            {
+                if (tile.Down.BuiltRoom.XPosition != TilePosition)
+                {
+                    return false;
+                }
+            }
+        }
 
         return true;
     }
@@ -350,6 +388,6 @@ public class Tile : MonoBehaviour
         }
 
         Owner.RegenerateNavigationGraph();
-        room.OnRoomCreated();
+        room.OnRoomCreated(TilePosition, data);
     }
 }

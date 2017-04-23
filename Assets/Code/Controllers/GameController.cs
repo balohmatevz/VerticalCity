@@ -9,12 +9,33 @@ public class GameController : MonoBehaviour
 
     //Consts
     public const float BUILDABLE_ROOM_BUTTON_SPACING = 35f;
+    public const float GAME_SPEED = 0.2f;
+
+    public const float SLEEP_START = 0f;
+    public const float SLEEP_END = 8f;
+    public const float OUTSIDE_WORK_START = 8f;
+    public const float OUTSIDE_WORK_END = 18f;
+    public const float OUTSIDE_WORK_MONEY_PER_HOUR = 3f;
+    public const float NEW_PERSON_HOURS_MIN = 0.2f;
+    public const float NEW_PERSON_HOURS_MAX = 0.4f;
 
     //Variables
     [Header("Variables")]
 
+    public static float IngameSpeedModifier = 1;
+
+    public float CurrentTime = 12f;
+    public List<Person> People = new List<Person>();
+    public List<WorkNode> JobListings = new List<WorkNode>();
+    public List<HomeNode> Vacancies = new List<HomeNode>();
+
+    public bool BuildDefault = false;
+
+    public List<NavNode> NavNodes = new List<NavNode>();
     public List<RoomData> BuildableRooms;
     public RoomPreview BuildableRoomPreview;
+
+    public float NewPersonTimer;
 
     private Tile _selectedTile = null;
     public Tile SelectedTile
@@ -67,6 +88,7 @@ public class GameController : MonoBehaviour
     [Header("Scene References")]
     public Image BuildModeButtonImg;
     public RectTransform BuildableRoomButtonsAnchor;
+    public Transform PeopleAnchor;
 
     //Sprites
     [Header("Sprites")]
@@ -89,6 +111,8 @@ public class GameController : MonoBehaviour
     public GameObject PF_Floor;
     public GameObject PF_Tile;
 
+    public GameObject PF_Person;
+
     public GameObject PF_RoomElevator;
     public GameObject PF_RoomOffice1;
     public GameObject PF_RoomOffice2;
@@ -105,15 +129,15 @@ public class GameController : MonoBehaviour
     {
         obj = this;
         BuildableRooms = new List<RoomData>();
-        BuildableRooms.Add(new RoomData("Elevator", 3, RoomElevator, PF_RoomElevator));
-        BuildableRooms.Add(new RoomData("Small OFfice", 5, RoomOffice1, PF_RoomOffice1));
-        BuildableRooms.Add(new RoomData("Medium Office", 8, RoomOffice2, PF_RoomOffice2));
-        BuildableRooms.Add(new RoomData("Large Office", 10, RoomOffice3, PF_RoomOffice3));
-        BuildableRooms.Add(new RoomData("Shop", 8, RoomShop, PF_RoomShop));
-        BuildableRooms.Add(new RoomData("Bar", 8, RoomBar, PF_RoomBar));
-        BuildableRooms.Add(new RoomData("Small Home", 5, RoomHome1, PF_RoomHome1));
-        BuildableRooms.Add(new RoomData("Medium Home", 8, RoomHome2, PF_RoomHome2));
-        BuildableRooms.Add(new RoomData("Large Home", 10, RoomHome3, PF_RoomHome3));
+        BuildableRooms.Add(new RoomData("Elevator", 3, RoomElevator, PF_RoomElevator, true));
+        BuildableRooms.Add(new RoomData("Small OFfice", 5, RoomOffice1, PF_RoomOffice1, false));
+        BuildableRooms.Add(new RoomData("Medium Office", 8, RoomOffice2, PF_RoomOffice2, false));
+        BuildableRooms.Add(new RoomData("Large Office", 10, RoomOffice3, PF_RoomOffice3, false));
+        BuildableRooms.Add(new RoomData("Shop", 8, RoomShop, PF_RoomShop, false));
+        BuildableRooms.Add(new RoomData("Bar", 8, RoomBar, PF_RoomBar, false));
+        BuildableRooms.Add(new RoomData("Small Home", 5, RoomHome1, PF_RoomHome1, false));
+        BuildableRooms.Add(new RoomData("Medium Home", 8, RoomHome2, PF_RoomHome2, false));
+        BuildableRooms.Add(new RoomData("Large Home", 10, RoomHome3, PF_RoomHome3, false));
     }
 
     // Use this for initialization
@@ -131,11 +155,53 @@ public class GameController : MonoBehaviour
             RoomSelectButton roomSelectButton = go.GetComponent<RoomSelectButton>();
             roomSelectButton.SetUp(roomData);
         }
+
+        IngameSpeedModifier = 1f;
     }
 
     // Update is called once per frame
     void Update()
     {
+        CurrentTime += FrameTimeDiff();
+        CurrentTime = CurrentTime % 24;
 
+        NewPersonTimer -= FrameTimeDiff();
+        if (NewPersonTimer <= 0)
+        {
+            NewPersonTimer += Random.Range(NEW_PERSON_HOURS_MIN, NEW_PERSON_HOURS_MAX);
+            if (Vacancies.Count > 0)
+            {
+                CreatePerson();
+            }
+        }
+    }
+
+    public static float FrameTimeDiff()
+    {
+        return GAME_SPEED * Time.deltaTime * IngameSpeedModifier;
+    }
+
+    public void ResetNavGraph()
+    {
+        foreach (NavNode node in NavNodes)
+        {
+            node.NavReset();
+        }
+    }
+
+    public void CreatePerson()
+    {
+        GameObject go = Instantiate(PF_Person);
+        Transform t = go.transform;
+        Person person = go.GetComponent<Person>();
+        t.SetParent(PeopleAnchor);
+        t.localScale = new Vector2(0.5f, 1);
+        t.localRotation = Quaternion.identity;
+        t.localPosition = Building.obj.EntryNode.transform.position;
+    }
+
+    public void INPUT_SetSpeed(float time)
+    {
+        IngameSpeedModifier = time;
     }
 }
