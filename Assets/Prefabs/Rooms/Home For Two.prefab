@@ -93,6 +93,7 @@ GameObject:
   - component: {fileID: 4727683757204078}
   - component: {fileID: 212070031446626750}
   - component: {fileID: 114904223681570278}
+  - component: {fileID: 61984485300688658}
   m_Layer: 0
   m_Name: Home For Two
   m_TagString: Untagged
@@ -169,6 +170,31 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &61984485300688658
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1805985859437082}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 4, y: 2}
+    newSize: {x: 4, y: 2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 3.99, y: 1.99}
+  m_EdgeRadius: 0
 --- !u!114 &114128072913393428
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -183,6 +209,9 @@ MonoBehaviour:
   Connections: []
   Line: {fileID: 0}
   InRoom: {fileID: 114904223681570278}
+  BorderConnections: []
+  NavState: 0
+  PathArchive: []
   InternalNodes: []
 --- !u!114 &114261799602169172
 MonoBehaviour:
@@ -198,6 +227,10 @@ MonoBehaviour:
   Connections: []
   Line: {fileID: 0}
   InRoom: {fileID: 114904223681570278}
+  BorderConnections: []
+  NavState: 0
+  PathArchive: []
+  Resident: {fileID: 0}
 --- !u!114 &114706344967417232
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -212,6 +245,10 @@ MonoBehaviour:
   Connections: []
   Line: {fileID: 0}
   InRoom: {fileID: 114904223681570278}
+  BorderConnections: []
+  NavState: 0
+  PathArchive: []
+  Resident: {fileID: 0}
 --- !u!114 &114775549829491290
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -226,6 +263,9 @@ MonoBehaviour:
   Connections: []
   Line: {fileID: 0}
   InRoom: {fileID: 114904223681570278}
+  BorderConnections: []
+  NavState: 0
+  PathArchive: []
   InternalNodes: []
 --- !u!114 &114904223681570278
 MonoBehaviour:
@@ -247,13 +287,16 @@ MonoBehaviour:
   HomeNodes:
   - {fileID: 114261799602169172}
   - {fileID: 114706344967417232}
+  XPosition: 0
+  Rent: 50
+  Money: 0
 --- !u!120 &120328321510579778
 LineRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1133336263832144}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_MotionVectors: 0
@@ -336,7 +379,7 @@ LineRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1749006500342690}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_MotionVectors: 0
@@ -419,7 +462,7 @@ LineRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1281293938136776}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_MotionVectors: 0
@@ -502,7 +545,7 @@ LineRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1611029819955972}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_MotionVectors: 0
@@ -585,7 +628,7 @@ SpriteRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1281293938136776}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_MotionVectors: 1
@@ -665,7 +708,7 @@ SpriteRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1611029819955972}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_MotionVectors: 1
@@ -705,7 +748,7 @@ SpriteRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1749006500342690}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_MotionVectors: 1
@@ -745,7 +788,7 @@ SpriteRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1133336263832144}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_MotionVectors: 1

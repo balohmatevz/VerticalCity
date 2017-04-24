@@ -21,6 +21,11 @@ public class GameController : MonoBehaviour
 
     //Variables
     [Header("Variables")]
+    public int Money = 10000;
+
+    public List<Room> Rooms;
+    public Room SelectedRoom;
+    public Person SelectedPerson;
 
     public static float IngameSpeedModifier = 1;
 
@@ -28,6 +33,8 @@ public class GameController : MonoBehaviour
     public List<Person> People = new List<Person>();
     public List<WorkNode> JobListings = new List<WorkNode>();
     public List<HomeNode> Vacancies = new List<HomeNode>();
+    public List<LeisureNode> Shops = new List<LeisureNode>();
+    public List<LeisureNode> Bars = new List<LeisureNode>();
 
     public bool BuildDefault = false;
 
@@ -89,6 +96,9 @@ public class GameController : MonoBehaviour
     public Image BuildModeButtonImg;
     public RectTransform BuildableRoomButtonsAnchor;
     public Transform PeopleAnchor;
+    public RoomInfoDisplay RoomDisplay;
+    public PersonInfoDisplay PersonDisplay;
+    public TutorialDisplay Tutorial;
 
     //Sprites
     [Header("Sprites")]
@@ -129,15 +139,15 @@ public class GameController : MonoBehaviour
     {
         obj = this;
         BuildableRooms = new List<RoomData>();
-        BuildableRooms.Add(new RoomData("Elevator", 3, RoomElevator, PF_RoomElevator, true));
-        BuildableRooms.Add(new RoomData("Small OFfice", 5, RoomOffice1, PF_RoomOffice1, false));
-        BuildableRooms.Add(new RoomData("Medium Office", 8, RoomOffice2, PF_RoomOffice2, false));
-        BuildableRooms.Add(new RoomData("Large Office", 10, RoomOffice3, PF_RoomOffice3, false));
-        BuildableRooms.Add(new RoomData("Shop", 8, RoomShop, PF_RoomShop, false));
-        BuildableRooms.Add(new RoomData("Bar", 8, RoomBar, PF_RoomBar, false));
-        BuildableRooms.Add(new RoomData("Small Home", 5, RoomHome1, PF_RoomHome1, false));
-        BuildableRooms.Add(new RoomData("Medium Home", 8, RoomHome2, PF_RoomHome2, false));
-        BuildableRooms.Add(new RoomData("Large Home", 10, RoomHome3, PF_RoomHome3, false));
+        BuildableRooms.Add(new RoomData("Elevator", 3, RoomElevator, PF_RoomElevator, true, 200));
+        BuildableRooms.Add(new RoomData("Small Office", 5, RoomOffice1, PF_RoomOffice1, false, 400));
+        BuildableRooms.Add(new RoomData("Medium Office", 8, RoomOffice2, PF_RoomOffice2, false, 1000));
+        BuildableRooms.Add(new RoomData("Large Office", 10, RoomOffice3, PF_RoomOffice3, false, 3000));
+        BuildableRooms.Add(new RoomData("Shop", 8, RoomShop, PF_RoomShop, false, 1000));
+        BuildableRooms.Add(new RoomData("Bar", 8, RoomBar, PF_RoomBar, false, 1000));
+        BuildableRooms.Add(new RoomData("Small Home", 5, RoomHome1, PF_RoomHome1, false, 400));
+        BuildableRooms.Add(new RoomData("Medium Home", 8, RoomHome2, PF_RoomHome2, false, 1000));
+        BuildableRooms.Add(new RoomData("Large Home", 10, RoomHome3, PF_RoomHome3, false, 3000));
     }
 
     // Use this for initialization
@@ -157,13 +167,18 @@ public class GameController : MonoBehaviour
         }
 
         IngameSpeedModifier = 1f;
+        Tutorial.gameObject.SetActive(true);
     }
 
     // Update is called once per frame
     void Update()
     {
         CurrentTime += FrameTimeDiff();
-        CurrentTime = CurrentTime % 24;
+        if (CurrentTime >= 24)
+        {
+            OnMidnight();
+            CurrentTime = CurrentTime % 24;
+        }
 
         NewPersonTimer -= FrameTimeDiff();
         if (NewPersonTimer <= 0)
@@ -203,5 +218,18 @@ public class GameController : MonoBehaviour
     public void INPUT_SetSpeed(float time)
     {
         IngameSpeedModifier = time;
+    }
+
+    public void OnMidnight()
+    {
+        foreach (Room room in Rooms)
+        {
+            room.PayRent();
+        }
+    }
+
+    public void INPUT_OpenTutorial()
+    {
+        Tutorial.gameObject.SetActive(true);
     }
 }

@@ -57,6 +57,7 @@ GameObject:
   - component: {fileID: 4239934672016084}
   - component: {fileID: 212839843574908934}
   - component: {fileID: 114719172304028348}
+  - component: {fileID: 61988557453923150}
   m_Layer: 0
   m_Name: Office For Three
   m_TagString: Untagged
@@ -201,6 +202,31 @@ Transform:
   m_Father: {fileID: 4239934672016084}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &61988557453923150
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1456177129230276}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 5, y: 2}
+    newSize: {x: 4, y: 2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 4.99, y: 1.99}
+  m_EdgeRadius: 0
 --- !u!114 &114044735768981452
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -215,10 +241,14 @@ MonoBehaviour:
   Connections: []
   Line: {fileID: 0}
   InRoom: {fileID: 114719172304028348}
+  BorderConnections: []
   NavState: 0
   PathArchive: []
+  Employee: {fileID: 0}
   StartTime: 8
   EndTime: 17
+  WagePerHour: 10
+  EarningsPerHour: 15
 --- !u!114 &114385579813789522
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -233,10 +263,14 @@ MonoBehaviour:
   Connections: []
   Line: {fileID: 0}
   InRoom: {fileID: 114719172304028348}
+  BorderConnections: []
   NavState: 0
   PathArchive: []
+  Employee: {fileID: 0}
   StartTime: 8
   EndTime: 17
+  WagePerHour: 10
+  EarningsPerHour: 15
 --- !u!114 &114635897887616066
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -251,10 +285,14 @@ MonoBehaviour:
   Connections: []
   Line: {fileID: 0}
   InRoom: {fileID: 114719172304028348}
+  BorderConnections: []
   NavState: 0
   PathArchive: []
+  Employee: {fileID: 0}
   StartTime: 8
   EndTime: 17
+  WagePerHour: 10
+  EarningsPerHour: 15
 --- !u!114 &114653361497081576
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -269,6 +307,7 @@ MonoBehaviour:
   Connections: []
   Line: {fileID: 0}
   InRoom: {fileID: 114719172304028348}
+  BorderConnections: []
   NavState: 0
   PathArchive: []
   InternalNodes: []
@@ -293,6 +332,9 @@ MonoBehaviour:
   - {fileID: 114044735768981452}
   LeisureNodes: []
   HomeNodes: []
+  XPosition: 0
+  Rent: 75
+  Money: 0
 --- !u!114 &114898161103900138
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -307,6 +349,7 @@ MonoBehaviour:
   Connections: []
   Line: {fileID: 0}
   InRoom: {fileID: 114719172304028348}
+  BorderConnections: []
   NavState: 0
   PathArchive: []
   InternalNodes: []
@@ -316,7 +359,7 @@ LineRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1910737058113004}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_MotionVectors: 0
@@ -399,7 +442,7 @@ LineRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1789392668917304}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_MotionVectors: 0
@@ -482,7 +525,7 @@ LineRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1777679715141556}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_MotionVectors: 0
@@ -565,7 +608,7 @@ LineRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1186861737720276}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_MotionVectors: 0
@@ -648,7 +691,7 @@ LineRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1372037063775748}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_MotionVectors: 0
@@ -731,7 +774,7 @@ SpriteRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1372037063775748}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_MotionVectors: 1
@@ -771,7 +814,7 @@ SpriteRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1186861737720276}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_MotionVectors: 1
@@ -811,7 +854,7 @@ SpriteRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1777679715141556}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_MotionVectors: 1
@@ -851,7 +894,7 @@ SpriteRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1910737058113004}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_MotionVectors: 1
@@ -891,7 +934,7 @@ SpriteRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1789392668917304}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_MotionVectors: 1

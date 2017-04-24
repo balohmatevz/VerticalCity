@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class Room : MonoBehaviour
@@ -17,10 +18,14 @@ public class Room : MonoBehaviour
     public int XPosition;
     public RoomData Data;
 
+    public int Rent;
+
+    public float Money = 0;
+
     // Use this for initialization
     void Start()
     {
-
+        GameController.obj.Rooms.Add(this);
     }
 
     // Update is called once per frame
@@ -29,11 +34,44 @@ public class Room : MonoBehaviour
 
     }
 
+    public string GetMoneyText()
+    {
+        float money = Money;
+        foreach (HomeNode home in HomeNodes)
+        {
+            if (home.Resident != null)
+            {
+                money += home.Resident.Money;
+            }
+        }
+
+        return "£" + money.ToString("0");
+    }
+
     public void OnRoomCreated(int xPosition, RoomData data)
     {
         RecreateInternalNavGraph();
         XPosition = xPosition;
         Data = data;
+    }
+
+    public void OnMouseUp()
+    {
+        if (CameraMove.obj.IsDrag)
+        {
+            return;
+        }
+
+        if (EventSystem.current.IsPointerOverGameObject())
+        {
+            return;
+        }
+
+        GameController.obj.SelectedRoom = this;
+        GameController.obj.SelectedPerson = null;
+        GameController.obj.RoomDisplay.gameObject.SetActive(true);
+        GameController.obj.PersonDisplay.gameObject.SetActive(false);
+        GameController.obj.RoomDisplay.SetUp();
     }
 
     public void ClearNavGraph()
@@ -124,5 +162,58 @@ public class Room : MonoBehaviour
             }
         }
 
+    }
+
+    public void PayRent()
+    {
+        if (Money > Rent)
+        {
+            Money -= Rent;
+            GameController.obj.Money += Rent;
+        }
+        else
+        {
+            //Not enough to pay rent, take everything
+            float missingRent = Rent - Money;
+            GameController.obj.Money += (int)Money;
+            Money = 0;
+
+            int residents = 0;
+            if (HomeNodes.Count > 0)
+            {
+                foreach (HomeNode hn in HomeNodes)
+                {
+                    if (hn.Resident != null)
+                    {
+                        residents++;
+                    }
+                }
+            }
+
+            if (residents > 0)
+            {
+                //Take from residents
+                float sharePerResident = missingRent / residents;
+                foreach (HomeNode hn in HomeNodes)
+                {
+                    if (hn.Resident != null)
+                    {
+                        if (hn.Resident.Money > sharePerResident)
+                        {
+                            //Take share
+                            hn.Resident.Money -= sharePerResident;
+                            GameController.obj.Money += (int)sharePerResident;
+                        }
+                        else
+                        {
+                            //Take all
+                            GameController.obj.Money += (int)hn.Resident.Money;
+                            hn.Resident.Money = 0;
+                        }
+                    }
+                }
+            }
+
+        }
     }
 }

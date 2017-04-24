@@ -75,6 +75,7 @@ GameObject:
   - component: {fileID: 4901387023988164}
   - component: {fileID: 212999441120699034}
   - component: {fileID: 114406749549496858}
+  - component: {fileID: 61183823302246836}
   m_Layer: 0
   m_Name: Bar
   m_TagString: Untagged
@@ -297,6 +298,31 @@ Transform:
   m_Father: {fileID: 4901387023988164}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &61183823302246836
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1190153112240282}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 4, y: 2}
+    newSize: {x: 4, y: 2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 3.99, y: 1.99}
+  m_EdgeRadius: 0
 --- !u!114 &114207040080816978
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -311,6 +337,7 @@ MonoBehaviour:
   Connections: []
   Line: {fileID: 0}
   InRoom: {fileID: 114406749549496858}
+  BorderConnections: []
   NavState: 0
   PathArchive: []
   InternalNodes: []
@@ -328,8 +355,13 @@ MonoBehaviour:
   Connections: []
   Line: {fileID: 0}
   InRoom: {fileID: 114406749549496858}
+  BorderConnections: []
   NavState: 0
   PathArchive: []
+  NeedSattisfactionShopping: 0
+  NeedSattisfactionSocial: 0.4
+  MoneyToUse: 150
+  Reservation: {fileID: 0}
 --- !u!114 &114391949660921536
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -344,8 +376,13 @@ MonoBehaviour:
   Connections: []
   Line: {fileID: 0}
   InRoom: {fileID: 114406749549496858}
+  BorderConnections: []
   NavState: 0
   PathArchive: []
+  NeedSattisfactionShopping: 0
+  NeedSattisfactionSocial: 0.4
+  MoneyToUse: 150
+  Reservation: {fileID: 0}
 --- !u!114 &114406749549496858
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -370,6 +407,9 @@ MonoBehaviour:
   - {fileID: 114391949660921536}
   - {fileID: 114418941920041306}
   HomeNodes: []
+  XPosition: 0
+  Rent: 100
+  Money: 0
 --- !u!114 &114418941920041306
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -384,8 +424,13 @@ MonoBehaviour:
   Connections: []
   Line: {fileID: 0}
   InRoom: {fileID: 114406749549496858}
+  BorderConnections: []
   NavState: 0
   PathArchive: []
+  NeedSattisfactionShopping: 0
+  NeedSattisfactionSocial: 0.4
+  MoneyToUse: 150
+  Reservation: {fileID: 0}
 --- !u!114 &114427846785266470
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -400,10 +445,14 @@ MonoBehaviour:
   Connections: []
   Line: {fileID: 0}
   InRoom: {fileID: 114406749549496858}
+  BorderConnections: []
   NavState: 0
   PathArchive: []
+  Employee: {fileID: 0}
   StartTime: 8
   EndTime: 17
+  WagePerHour: 25
+  EarningsPerHour: 0
 --- !u!114 &114561337274028972
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -418,8 +467,13 @@ MonoBehaviour:
   Connections: []
   Line: {fileID: 0}
   InRoom: {fileID: 114406749549496858}
+  BorderConnections: []
   NavState: 0
   PathArchive: []
+  NeedSattisfactionShopping: 0
+  NeedSattisfactionSocial: 0.4
+  MoneyToUse: 150
+  Reservation: {fileID: 0}
 --- !u!114 &114924972223157550
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -434,6 +488,7 @@ MonoBehaviour:
   Connections: []
   Line: {fileID: 0}
   InRoom: {fileID: 114406749549496858}
+  BorderConnections: []
   NavState: 0
   PathArchive: []
   InternalNodes: []
@@ -451,15 +506,20 @@ MonoBehaviour:
   Connections: []
   Line: {fileID: 0}
   InRoom: {fileID: 114406749549496858}
+  BorderConnections: []
   NavState: 0
   PathArchive: []
+  NeedSattisfactionShopping: 0
+  NeedSattisfactionSocial: 0.4
+  MoneyToUse: 150
+  Reservation: {fileID: 0}
 --- !u!120 &120103694851034818
 LineRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1181281966123128}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_MotionVectors: 0
@@ -542,7 +602,7 @@ LineRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1963942612212578}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_MotionVectors: 0
@@ -625,7 +685,7 @@ LineRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1246268758103366}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_MotionVectors: 0
@@ -708,7 +768,7 @@ LineRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1559293206297756}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_MotionVectors: 0
@@ -791,7 +851,7 @@ LineRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1160045439102994}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_MotionVectors: 0
@@ -874,7 +934,7 @@ LineRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1748181295274124}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_MotionVectors: 0
@@ -957,7 +1017,7 @@ LineRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1307562002024016}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_MotionVectors: 0
@@ -1040,7 +1100,7 @@ LineRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1049864447434328}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_MotionVectors: 0
@@ -1123,7 +1183,7 @@ SpriteRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1307562002024016}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_MotionVectors: 1
@@ -1163,7 +1223,7 @@ SpriteRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1963942612212578}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_MotionVectors: 1
@@ -1203,7 +1263,7 @@ SpriteRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1246268758103366}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_MotionVectors: 1
@@ -1243,7 +1303,7 @@ SpriteRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1181281966123128}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_MotionVectors: 1
@@ -1283,7 +1343,7 @@ SpriteRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1160045439102994}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_MotionVectors: 1
@@ -1323,7 +1383,7 @@ SpriteRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1748181295274124}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_MotionVectors: 1
@@ -1363,7 +1423,7 @@ SpriteRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1559293206297756}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_MotionVectors: 1
@@ -1403,7 +1463,7 @@ SpriteRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1049864447434328}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_MotionVectors: 1

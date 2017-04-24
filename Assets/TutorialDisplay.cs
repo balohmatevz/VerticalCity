@@ -1,11 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class SplashController : MonoBehaviour
+public class TutorialDisplay : MonoBehaviour
 {
+
     // Use this for initialization
     void Start()
     {
@@ -18,13 +18,8 @@ public class SplashController : MonoBehaviour
 
     }
 
-    public void INPUT_Play()
+    public void INPUT_Close()
     {
-        SceneManager.LoadScene("scene");
-    }
-
-    public void INPUT_QUIT()
-    {
-        Application.Quit();
+        this.gameObject.SetActive(false);
     }
 }

@@ -104,6 +104,7 @@ public class Tile : MonoBehaviour
                     case TileState.NONE:
                         if (CanBuild())
                         {
+                            GameController.obj.Money -= 20;
                             State = TileState.BUILDING;
                         }
                         break;
@@ -275,6 +276,11 @@ public class Tile : MonoBehaviour
 
     public bool CanBuild()
     {
+        if (GameController.obj.Money < 20)
+        {
+            return false;
+        }
+
         if (Owner.FloorNumber == 0)
         {
             return true;
@@ -296,6 +302,11 @@ public class Tile : MonoBehaviour
 
     public bool CanBuildRoom(RoomData room)
     {
+        if (GameController.obj.Money < room.Cost)
+        {
+            return false;
+        }
+
         int neededTiles = room.NeededTiles;
 
         Tile tile = this;
@@ -308,7 +319,7 @@ public class Tile : MonoBehaviour
             tile = tile.Right;
             neededTiles--;
         }
-        
+
         Tile lastTile = tile;
 
         if (room.NeedsRoomAboveAndBelow)
@@ -328,7 +339,7 @@ public class Tile : MonoBehaviour
                     return false;
                 }
             }
-            
+
             tile = lastTile.Left;
             if (tile.Up != null && tile.Up.BuiltRoom != null && tile.Up.BuiltRoom.Data != null && tile.Up.BuiltRoom.Data.Name == room.Name)
             {
@@ -366,6 +377,7 @@ public class Tile : MonoBehaviour
             return;
         }
 
+        GameController.obj.Money -= data.Cost;
         GameObject go = Instantiate(data.Prefab);
         Transform t = go.transform;
         Room room = go.GetComponent<Room>();

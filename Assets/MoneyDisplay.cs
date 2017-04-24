@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
-public class SplashController : MonoBehaviour
+public class MoneyDisplay : MonoBehaviour
 {
+    public TextMeshProUGUI text;
+
     // Use this for initialization
     void Start()
     {
@@ -15,16 +17,6 @@ public class SplashController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-    }
-
-    public void INPUT_Play()
-    {
-        SceneManager.LoadScene("scene");
-    }
-
-    public void INPUT_QUIT()
-    {
-        Application.Quit();
+        text.text = "£" + GameController.obj.Money.ToString("0");
     }
 }

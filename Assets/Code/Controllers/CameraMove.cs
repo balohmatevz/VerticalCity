@@ -18,6 +18,8 @@ public class CameraMove : MonoBehaviour
     public const float CAMERA_Y_MAX = 20f;
     public const float CAMERA_POS_Z = -10;
 
+    public const float SCROLL_SPEED = 0.3f;
+
     public const float DRAG_THRESHOLD = 0.05f;
 
     private void Awake()
@@ -64,5 +66,8 @@ public class CameraMove : MonoBehaviour
         }
 
         LastMousePosition = Cam.ScreenToWorldPoint(Input.mousePosition);
+
+        Cam.orthographicSize += Input.mouseScrollDelta.y * SCROLL_SPEED;
+        Cam.orthographicSize = Mathf.Clamp(Cam.orthographicSize, 3, 8);
     }
 }

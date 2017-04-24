@@ -5,13 +5,12 @@ using UnityEngine.UI;
 
 public class WorkNode : NavNode
 {
+    public Person Employee;
     public float StartTime = 8;
     public float EndTime = 17;
 
     public float WagePerHour = 10f;
-    public float EarningsPerHour = 5f;
-
-    public float Money = 0;
+    public float EarningsPerHour = 15f;
 
     // Use this for initialization
     void Start()
@@ -36,12 +35,12 @@ public class WorkNode : NavNode
 
     public void PayEmployee(Person person)
     {
-        if (Money > 0)
+        if (InRoom.Money > 0)
         {
             float amountToPay = GameController.FrameTimeDiff() * WagePerHour;
             person.Money += amountToPay;
-            Money -= amountToPay;
-            Money = Mathf.Max(0, Money);
+            InRoom.Money -= amountToPay;
+            InRoom.Money = Mathf.Max(0, InRoom.Money);
         }
     }
 }

@@ -22,9 +22,10 @@ public class Building : MonoBehaviour
     {
         Floors = new List<Floor>();
 
-        AddFloor();
-        AddFloor();
-        AddFloor();
+        for (int i = 0; i < 12; i++)
+        {
+            AddFloor();
+        }
 
         if (GameController.obj.BuildDefault)
         {

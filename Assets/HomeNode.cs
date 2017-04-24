@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class HomeNode : NavNode
 {
+    public Person Resident;
 
     // Use this for initialization
     void Start()

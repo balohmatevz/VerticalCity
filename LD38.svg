@@ -56,9 +56,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.64"
-     inkscape:cx="13297.346"
-     inkscape:cy="7173.0567"
+     inkscape:zoom="3.6203867"
+     inkscape:cx="14303.045"
+     inkscape:cy="7721.408"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -118,6 +118,14 @@
        position="13189.063,7218.75"
        orientation="1,0"
        id="guide14700" />
+    <sodipodi:guide
+       position="14281.624,7576.5387"
+       orientation="1,0"
+       id="guide14790" />
+    <sodipodi:guide
+       position="14424.427,7716.3028"
+       orientation="0,1"
+       id="guide14792" />
   </sodipodi:namedview>
   <metadata
      id="metadata7">
@@ -7241,5 +7249,22 @@ qvf/AeXuxMEwgE2UAAAAAElFTkSuQmCC
        inkscape:export-filename="C:\Users\conta\Desktop\pause2.png"
        inkscape:export-xdpi="70.243904"
        inkscape:export-ydpi="70.243904" />
+    <circle
+       style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:20;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path14784"
+       cx="14281.615"
+       cy="-6663.9404"
+       r="125.50528" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:229.20307922px;line-height:125%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="14281.852"
+       y="-6577.2939"
+       id="text14786"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan14788"
+         x="14281.852"
+         y="-6577.2939">i</tspan></text>
   </g>
 </svg>
