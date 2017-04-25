@@ -56,9 +56,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="3.6203867"
-     inkscape:cx="14303.045"
-     inkscape:cy="7721.408"
+     inkscape:zoom="1.28"
+     inkscape:cx="14322.181"
+     inkscape:cy="7769.1242"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -7250,18 +7250,24 @@ qvf/AeXuxMEwgE2UAAAAAElFTkSuQmCC
        inkscape:export-xdpi="70.243904"
        inkscape:export-ydpi="70.243904" />
     <circle
-       style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:20;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       style="opacity:1;fill:none;fill-opacity:1;stroke:#000000;stroke-width:20;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="path14784"
        cx="14281.615"
        cy="-6663.9404"
-       r="125.50528" />
+       r="125.50528"
+       inkscape:export-filename="C:\Users\conta\Desktop\info.png"
+       inkscape:export-xdpi="66.419998"
+       inkscape:export-ydpi="66.419998" />
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:229.20307922px;line-height:125%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-style:normal;font-weight:normal;font-size:229.20307922px;line-height:125%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
        x="14281.852"
        y="-6577.2939"
        id="text14786"
-       sodipodi:linespacing="125%"><tspan
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="C:\Users\conta\Desktop\info.png"
+       inkscape:export-xdpi="66.419998"
+       inkscape:export-ydpi="66.419998"><tspan
          sodipodi:role="line"
          id="tspan14788"
          x="14281.852"
